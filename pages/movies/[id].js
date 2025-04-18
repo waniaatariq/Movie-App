@@ -3,70 +3,49 @@ import Link from 'next/link'; // Import Link
 import data from '../../data/movies.json';
 import styles from '../../styles/MovieDetail.module.css';
 
-export default function MovieDetails({ movie, genre, director }) {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <p className={styles.loading}>Loading…</p>;
-  }
-
-  return (
-    <div className={styles.container}>
-      <button className={styles.back} onClick={() => router.back()}>
-        ← Back
-      </button>
-
-      <div className={styles.content}>
-        {/* Poster */}
-        {movie.poster && (
-          <img
-            src={movie.poster}
-            alt={movie.title}
-            className={styles.posterImage}
-          />
-        )}
-
-        {/* Details */}
-        <div className={styles.details}>
-          <h1 className={styles.title}>{movie.title}</h1>
-          <p className={styles.meta}>
-            {movie.releaseYear} · {genre?.name} · ⭐ {movie.rating}
-          </p>
-          <p className={styles.description}>{movie.description}</p>
-
-          {/* Corrected Link */}
-          <Link href={`/movies/${movie.id}/director`} className="text-blue-600 font-medium hover:underline">
-              Learn more about the director →
-          </Link>
+export default function GenrePage({ filteredMovies }) {
+    const router = useRouter();
+    const { id } = router.query; // Get the genre ID from the URL
+  
+    return (
+      <div className={styles.container}>
+        <h1 className={styles.title}>Movies in {filteredMovies[0]?.genreName}</h1>
+        <div className={styles.movieList}>
+          {filteredMovies.length === 0 ? (
+            <p>No movies available for this genre.</p>
+          ) : (
+            filteredMovies.map((movie) => (
+              <div className={styles.movieItem} key={movie.id}>
+                <img
+                  src={movie.poster}
+                  alt={movie.title}
+                  className={styles.moviePoster}
+                />
+                <div className={styles.movieDetails}>
+                  <h2 className={styles.movieTitle}>{movie.title}</h2>
+                  <p>{movie.description}</p>
+                  <p className={styles.releaseYear}>{movie.releaseYear}</p>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
-    </div>
-  );
-}
-
-export async function getStaticPaths() {
-  const paths = data.movies.map((m) => ({
-    params: { id: m.id },
-  }));
-
-  return {
-    paths,
-    fallback: false, // only these IDs will be generated
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const movie = data.movies.find((m) => m.id === params.id);
-
-  if (!movie) {
-    return { notFound: true };
+    );
   }
-
-  const genre = data.genres.find((g) => g.id === movie.genreId) || null;
-  const director = data.directors.find((d) => d.id === movie.directorId) || null;
-
-  return {
-    props: { movie, genre, director },
-    revalidate: 10, // optional ISR
-  };
-}
+  
+  // Fetch the filtered movies for the genre in getServerSideProps
+  export async function getServerSideProps({ params }) {
+    const { id } = params; // Get the genre ID from the URL
+    const genre = moviesData.genres.find((genre) => genre.id === id); // Find the genre by ID
+    const filteredMovies = moviesData.movies
+      .filter((movie) => movie.genreId === id)
+      .map((movie) => ({
+        ...movie,
+        genreName: genre?.name || 'Unknown Genre', // Add the genre name to the movie
+      }));
+  
+    return {
+      props: { filteredMovies },
+    };
+  }

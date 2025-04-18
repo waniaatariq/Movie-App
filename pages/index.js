@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import moviesData from '../data/movies.json';
 import MovieCard from '../components/moviecard';
@@ -18,9 +19,11 @@ export default function Home({ movies }) {
 
         {/* Browse Genres Button */}
         <div className={styles.browseButtonWrapper}>
-          <button onClick={() => router.push('/genres')} className={styles.browseButton}>
-            Browse Genres
-          </button>
+          <Link href="/genre" passHref >
+            <button className={styles.browseButton}>
+              Browse Genres
+            </button>
+          </Link>
         </div>
 
         <section>
@@ -57,6 +60,7 @@ export async function getStaticProps() {
   return {
     props: {
       movies: moviesWithPosters,
+      revalidate: 10, // optional ISR
     },
   };
 }
