@@ -1,0 +1,90 @@
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    color: #fff;
+  }
+  
+  .back {
+    background: none;
+    border: none;
+    color: #e50914;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .posterImage {
+    flex-shrink: 0;       /* don’t let flexbox squish it */
+    width: 300px;         /* fixed width */
+    height: auto;         /* maintain original aspect ratio */
+    border-radius: 8px;
+    object-fit: cover;    /* crop/fill if needed */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+  }
+  
+  
+  .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .meta {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  .description {
+    line-height: 1.6;
+  }
+  
+  .director h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .dirName {
+    font-weight: 600;
+    
+  }
+  
+  .dirBio {
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+  
+  .loading {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+  }
+  .detailHeading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #333;
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 0.2rem;
+    margin-top: 1.2rem;
+  }
+  
+  .detailDescription {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
