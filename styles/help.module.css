@@ -1,32 +1,55 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f7f7f7; /* Light gray background */
-    padding: 2rem;
-  }
-  
-  .card {
-    max-width: 800px;
-    width: 100%;
-    background-color: #ffffff; /* White card background */
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 2rem;
-    text-align: left;
-  }
-  
-  .heading {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #e50914; /* Netflix red */
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  min-height: 100vh;
+  background-color: #000; /* Black background */
+  padding: 2rem;
+}
+
+.backButtonWrapper {
+  width: 100%; /* Ensure the button spans the full width */
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  margin-bottom: 1rem; /* Add spacing below the button */
+}
+
+.card {
+  max-width: 800px;
+  width: 100%;
+  background-color: #ffffff; /* White card background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 2rem;
+  text-align: left;
+}
+
+.backButton {
+  display: inline-block;
+  background-color: #e50914; /* Netflix red */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.backButton:hover {
+  background-color: #b20710; /* Darker red on hover */
+}
+
+.heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #e50914; /* Netflix red */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
   .h2 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #333333; /* Dark gray for subheadings */
     margin-bottom: 1rem;

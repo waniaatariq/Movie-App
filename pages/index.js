@@ -24,6 +24,7 @@ export default function Home({ movies }) {
               Browse Genres
             </button>
           </Link>
+  
         </div>
 
         <section>

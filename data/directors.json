@@ -1,0 +1,22 @@
+[
+    {
+      "id": "1",
+      "name": "Christopher Nolan",
+      "biography": "Christopher Nolan is a British-American filmmaker known for his complex narratives and stunning visuals.",
+      "movies": [
+        { "id": "101", "title": "Inception" },
+        { "id": "102", "title": "The Dark Knight" },
+        { "id": "103", "title": "Interstellar" }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Steven Spielberg",
+      "biography": "Steven Spielberg is an American filmmaker and one of the most influential directors in the history of cinema.",
+      "movies": [
+        { "id": "201", "title": "Jurassic Park" },
+        { "id": "202", "title": "E.T. the Extra-Terrestrial" },
+        { "id": "203", "title": "Schindler's List" }
+      ]
+    }
+  ]

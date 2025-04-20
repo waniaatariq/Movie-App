@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.logo}>🎬 Cineverse</div>
       <div className={styles.navLinks}>
-        <button className={styles.navButton} onClick={() => router.push('/')}>Home</button>
+        <button className={styles.navButton} onClick={() => router.push('/directors')}>Directors</button>
         <button className={styles.navButton} onClick={() => router.push('/help/faqs')}>FAQ</button>
         <button className={styles.navButton} onClick={() => router.push('/help/contact')}>Contact</button>
         <button className={styles.navButton} onClick={() => router.push('/help/privacy')}>Privacy Policy</button>

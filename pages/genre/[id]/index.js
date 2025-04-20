@@ -21,7 +21,7 @@ export default function GenrePage({ filteredMovies }) {
 
       <div className={styles.cardGrid}>
       {filteredMovies.map((movie) => (
-  <Link href={`/movie/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
+  <Link href={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
     <div className={styles.movieCard}>
       <img
         src={movie.poster}

@@ -68,7 +68,14 @@ export default function HelpPage() {
   };
 
   return (
+    
     <div className={styles.container}>
+       {/* Back Button */}
+       <div className={styles.backButtonWrapper}>
+        <button className={styles.backButton} onClick={() => router.push('/')}>
+          ← Back
+        </button>
+      </div>
       <div className={styles.card}>
         <h1 className={styles.heading}>Help Center</h1>
         {renderContent()}

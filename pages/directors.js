@@ -1,18 +1,25 @@
 import useSWR from 'swr';
-import moviesData from '../data/movies.json';
 import Link from 'next/link';
+import { useRouter } from 'next/router'; // Import useRouter
 import styles from '../styles/Directors.module.css';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function DirectorsPage() {
-  const { data: directors, error } = useSWR('/api/directors', fetcher);
+  const router = useRouter(); // Initialize useRouter
+
+  const { data: directors, error } = useSWR('/api/director', fetcher);
 
   if (error) return <p className={styles.error}>Failed to load directors.</p>;
-  if (!directors) return <p className={styles.loading}>Loading directors…</p>;
+  if (!directors) return <p className={styles.loading}>Loading directors...</p>;
 
   return (
     <div className={styles.container}>
+      {/* Back Button */}
+      <button className={styles.backButton} onClick={() => router.push('/')}>
+        ← Back
+      </button>
+
       <h1 className={styles.title}>🎬 Directors</h1>
       <div className={styles.list}>
         {directors.map((d) => (
@@ -21,15 +28,13 @@ export default function DirectorsPage() {
             <p className={styles.bio}>{d.biography}</p>
             <h3 className={styles.moviesHeader}>Movies:</h3>
             <ul className={styles.movieList}>
-              {moviesData.movies
-                .filter((m) => m.directorId === d.id)
-                .map((m) => (
-                  <li key={m.id}>
-                    <Link href={`/movies/${m.id}`}>
-                      <a className={styles.movieLink}>{m.title}</a>
-                    </Link>
-                  </li>
-                ))}
+              {d.movies.map((m) => (
+                <li key={m.id}>
+                  <Link href={`/movies/${m.id}`} className={styles.movieLink}>
+                    {m.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         ))}

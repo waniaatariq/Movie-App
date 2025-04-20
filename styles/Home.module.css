@@ -74,6 +74,7 @@
 .browseButtonWrapper {
   margin: 2rem 0;
   text-align: center;
+
 }
 
 .browseButton {
@@ -90,3 +91,4 @@
 .browseButton:hover {
   background-color: #b00610;
 }
+
