@@ -13,14 +13,16 @@
   }
   
   .heading {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #e61212; /* Netflix red for the heading */
     margin-bottom: 1.5rem;
+    text-align: center;
   }
   
   .subheading {
-    font-size: 2rem;
+    text-align: center;
+    font-size: 1.9rem;
     font-weight: 600;
     color: #050607; /* Dark gray for the subheading */
     margin-bottom: 1rem;

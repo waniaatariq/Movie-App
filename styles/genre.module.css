@@ -1,64 +1,63 @@
 .container {
-    max-width: 1000px;
-    margin: 3rem auto;
-    padding: 2rem;
-    background: #202020ef; /* Light gray background */
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin-top: 100px;
-  }
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e1e1e, #2a2a2a); /* subtle dark gradient */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 100px;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #e50914;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.genreList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.genreBlock {
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration-line:none; /* remove underline */
   
-  .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color : #e50914; /* Indigo for the title */
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .genreList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for items */
-    gap: 1.5rem; /* Space between cards */
-    padding: 0;
-    list-style: none;
-  }
-  
-  .genreBlock {
-    padding: 2rem;
-    background: #ebeadf; /* White background for each genre */
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-    text-align: center;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .genreBlock:hover {
-    transform: translateY(-5px); /* Slight lift effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-  }
-  
-  .genreHeading {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #000000; /* Dark blue for genre heading */
-    margin-bottom: 0.5rem;
-  }
-  
-  .genreLink {
-    text-decoration: none; /* Keep the underline */
-    
-    font-weight: 500;
-    font-size: 1.2rem;
-    transition: text-decoration-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .genreLink:hover {
-    text-decoration-color: #e70e0e; /* Show the underline on hover */
-    color: #e61313; /* Change text color on hover */
-  }
-  
+}
+
+.genreBlock:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  background: #ffeaea; /* light red touch on hover */
+}
+
+.genreHeading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e1e1e;
+  transition: color 0.3s ease;
+}
+
+.genreBlock:hover .genreHeading {
+  color: #9e050d;
+}
+
+.noGenres {
+  color: #fff;
+  text-align: center;
+  font-size: 1.2rem;
+}

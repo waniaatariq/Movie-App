@@ -9,8 +9,8 @@ export default function HelpPage() {
     if (!slug) {
       return (
         <div>
-          <h2>Welcome to the Help Section!</h2>
-          <p>
+          <h2 className={styles.h2}>Welcome to the Help Section!</h2>
+          <p className={styles.p}>
             Here you can find answers to frequently asked questions, contact us for support, or read our privacy policy.
           </p>
         </div>
@@ -21,22 +21,22 @@ export default function HelpPage() {
       case 'faqs':
         return (
           <div>
-            <h2>Frequently Asked Questions</h2>
-            <ul>
-              <li>Q: How do I create an account?</li>
-              <li>A: Click on the "Sign Up" button on the homepage and follow the instructions.</li>
-              <li>Q: How can I reset my password?</li>
-              <li>A: Go to the login page and click "Forgot Password" to reset it.</li>
-              <li>Q: How do I contact support?</li>
-              <li>A: Visit the Contact page for more details.</li>
+            <h2 className={styles.h2}>Frequently Asked Questions</h2>
+            <ul className={styles.ul}>
+              <li className={styles.li}><strong>Q:</strong> How do I create an account?</li>
+              <li className={styles.li}><strong>A:</strong> Click on the "Sign Up" button on the homepage and follow the instructions.</li>
+              <li className={styles.li}><strong>Q:</strong> How can I reset my password?</li>
+              <li className={styles.li}><strong>A:</strong> Go to the login page and click "Forgot Password" to reset it.</li>
+              <li className={styles.li}><strong>Q:</strong> How do I contact support?</li>
+              <li className={styles.li}><strong>A:</strong> Visit the Contact page for more details.</li>
             </ul>
           </div>
         );
       case 'contact':
         return (
           <div>
-            <h2>Contact Us</h2>
-            <p>
+            <h2 className={styles.h2}>Contact Us</h2>
+            <p className={styles.p}>
               Need help? Reach out to us at:
               <br />
               <strong>Email:</strong> support@cineverse.com
@@ -50,12 +50,12 @@ export default function HelpPage() {
       case 'privacy':
         return (
           <div>
-            <h2>Privacy Policy</h2>
-            <p>
+            <h2 className={styles.h2}>Privacy Policy</h2>
+            <p className={styles.p}>
               Your privacy is important to us. We collect minimal data to provide you with the best experience. For more
               details, please read our full privacy policy on our website.
             </p>
-            <p>
+            <p className={styles.p}>
               <strong>What we collect:</strong> Name, email, and usage data.
               <br />
               <strong>How we use it:</strong> To improve your experience and provide support.
@@ -63,7 +63,7 @@ export default function HelpPage() {
           </div>
         );
       default:
-        return <p>Help topic not found. Please check the URL or go back to the Help Center.</p>;
+        return <p className={styles.p}>Help topic not found. Please check the URL or go back to the Help Center.</p>;
     }
   };
 

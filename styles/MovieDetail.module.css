@@ -1,90 +1,57 @@
 .container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    color: #fff;
-  }
-  
-  .back {
-    background: none;
-    border: none;
-    color: #e50914;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 1rem;
-  }
-  
-  .content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .posterImage {
-    flex-shrink: 0;       /* don’t let flexbox squish it */
-    width: 300px;         /* fixed width */
-    height: auto;         /* maintain original aspect ratio */
-    border-radius: 8px;
-    object-fit: cover;    /* crop/fill if needed */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
-  }
-  
-  
-  .details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    margin: 0;
-  }
-  
-  .meta {
-    font-size: 1rem;
-    opacity: 0.8;
-  }
-  
-  .description {
-    line-height: 1.6;
-  }
-  
-  .director h2 {
-    margin: 0;
-    font-size: 1.2rem;
-  }
-  
-  .dirName {
-    font-weight: 600;
-    
-  }
-  
-  .dirBio {
-    opacity: 0.9;
-    line-height: 1.4;
-  }
-  
-  .loading {
-    text-align: center;
-    margin: 2rem 0;
-    font-size: 1.2rem;
-  }
-  .detailHeading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-    color: #333;
-    border-bottom: 2px solid #e5e5e5;
-    padding-bottom: 0.2rem;
-    margin-top: 1.2rem;
-  }
-  
-  .detailDescription {
-    font-size: 1.05rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  padding-left: 200px;
+}
+.backButton{
+margin-bottom: 40px;
+background-color: #e50914;
+border-style: none;
+border-radius: 2px;
+}
+.detail {
+  display: flex; /* Use flexbox to align poster and text side by side */
+  gap: 2rem; /* Add space between the poster and text */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.posterWrapper {
+  flex-shrink: 0; /* Prevent the poster from shrinking */
+}
+
+.poster {
+  width: 300px; /* Set a fixed width for the poster */
+  border-radius: 12px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+}
+
+.info {
+  flex: 1; /* Allow the text to take up the remaining space */
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e50914; /* Netflix red */
+  margin-bottom: 1rem;
+}
+
+.meta {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f3efef;
+  margin-bottom: 1.5rem;
+}
+
+.director {
+  margin-top: 2rem;
+  text-decoration: none;
+}
+
