@@ -59,6 +59,46 @@
       "genreId": "g4",
       "rating": 8,
       "poster": "https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SX300.jpg"
+    },
+    {
+      "id": "7",
+      "title": "The Dark Knight",
+      "directorId": "d1",
+      "description": "Batman faces off against the Joker in a high-stakes battle for Gotham's soul.",
+      "releaseYear": 2008,
+      "genreId": "g1",
+      "rating": 9,
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Mad Max: Fury Road",
+      "directorId": "d1",
+      "description": "In a post-apocalyptic wasteland, Max teams up with Furiosa to escape a tyrannical warlord.",
+      "releaseYear": 2015,
+      "genreId": "g3",
+      "rating": 8.1,
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDRkODJhOTgtOTc1OC00NTgzLTk4NjItNDgxZDY4YjlmNDY2XkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "id": "9",
+      "title": "The Shawshank Redemption",
+      "directorId": "d2",
+      "description": "Two imprisoned men form a deep bond over years, finding redemption and friendship.",
+      "releaseYear": 1994,
+      "genreId": "g4",
+      "rating": 9.3,
+      "poster": "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_SX300.jpg"
+    },
+    {
+      "id": "10",
+      "title": "Forrest Gump",
+      "directorId": "d7",
+      "description": "A slow-witted but kind-hearted man experiences monumental events in history.",
+      "releaseYear": 1994,
+      "genreId": "g4",
+      "rating": 8.8,
+      "poster": "https://m.media-amazon.com/images/M/MV5BNDYwNzVjMTItZmU5YS00YjQ5LTljYjgtMjY2NDVmYWMyNWFmXkEyXkFqcGc@._V1_SX300.jpg"
     }
   ],
   "genres": [
@@ -86,6 +126,11 @@
       "biography": "British-American director known for complex storytelling and visual innovation."
     },
     {
+      "id": "d2",
+      "name": "Frank Darabont",
+      "biography": "American director best known for The Shawshank Redemption and The Green Mile."
+    },
+    {
       "id": "d3",
       "name": "Baz Luhrmann",
       "biography": "Australian director known for visually extravagant films like Moulin Rouge! and The Great Gatsby."
@@ -104,6 +149,11 @@
       "id": "d6",
       "name": "Damien Chazelle",
       "biography": "American director known for musical dramas like Whiplash and La La Land."
+    },
+    {
+      "id": "d7",
+      "name": "Robert Zemeckis",
+      "biography": "American director known for classics like Forrest Gump and Back to the Future."
     }
   ]
 }
