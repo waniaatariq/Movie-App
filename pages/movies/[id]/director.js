@@ -1,4 +1,3 @@
-import moviesData from '../../../data/movies.json';
 import styles from '../../../styles/Director.module.css';
 
 export default function DirectorPage({ directorName, directorBio }) {
@@ -20,27 +19,21 @@ export default function DirectorPage({ directorName, directorBio }) {
   );
 }
 
-export async function getStaticPaths() {
-  const paths = moviesData.movies.map((movie) => ({
-    params: { id: movie.id },
-  }));
+export async function getServerSideProps({ params }) {
+  // Fetch movie to get directorId
+  const movieRes = await fetch(`http://localhost:3000/api/movies/${params.id}`);
+  const movie = await movieRes.json();
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
+  if (!movie || !movie.directorId) return { notFound: true };
 
-export async function getStaticProps({ params }) {
-  const movie = moviesData.movies.find((m) => m.id === params.id);
-  if (!movie) return { notFound: true };
-
-  const director = moviesData.directors.find((d) => d.id === movie.directorId);
+  // Fetch director details using the directorId
+  const directorRes = await fetch(`http://localhost:3000/api/directors/${movie.directorId}`);
+  const director = await directorRes.json();
 
   return {
     props: {
-      directorName: director?.name || 'Unknown Director',
-      directorBio: director?.biography || 'No bio available.',
+      directorName: director.name || 'Unknown Director',
+      directorBio: director.biography || 'No bio available.',
     },
   };
 }
