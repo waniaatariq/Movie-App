@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
+// lib/dbConnect.js
+import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
-  throw new Error('❌ MONGODB_URI is not defined in the environment variables');
+  throw new Error('Please define the MONGODB_URI environment variable in .env.local');
 }
 
 let cached = global.mongoose;
@@ -13,14 +14,10 @@ if (!cached) {
 }
 
 async function dbConnect() {
-  if (cached.conn) {
-    return cached.conn;
-  }
+  if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
     cached.promise = mongoose.connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       bufferCommands: false,
     }).then((mongoose) => {
       return mongoose;
@@ -31,4 +28,4 @@ async function dbConnect() {
   return cached.conn;
 }
 
-module.exports = dbConnect;
+export default dbConnect;

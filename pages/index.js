@@ -40,28 +40,24 @@ export default function Home({ movies }) {
   );
 }
 
+
 export async function getStaticProps() {
-  const apiKey = process.env.OMDB_API_KEY;
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/movies`);
+    const movies = await res.json();
 
-  const moviesWithPosters = await Promise.all(
-    moviesData.movies.map(async (movie) => {
-      try {
-        const res = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(movie.title)}&apikey=${apiKey}`);
-        const json = await res.json();
-        return {
-          ...movie,
-          poster: json.Poster && json.Poster !== 'N/A' ? json.Poster : null,
-        };
-      } catch {
-        return { ...movie, poster: null };
-      }
-    })
-  );
-
-  return {
-    props: {
-      movies: moviesWithPosters,
-      revalidate: 10, // optional ISR
-    },
-  };
+    return {
+      props: {
+        movies,
+      },
+      revalidate: 10, // ISR
+    };
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+    return {
+      props: {
+        movies: [],
+      },
+    };
+  }
 }

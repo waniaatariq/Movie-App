@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const DirectorSchema = new mongoose.Schema({
     id: {
@@ -16,4 +17,4 @@ const DirectorSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('Director', DirectorSchema);
+export default mongoose.models.Director || mongoose.model('Director', DirectorSchema);

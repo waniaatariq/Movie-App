@@ -1,6 +1,6 @@
 import styles from '../../../styles/Director.module.css';
 
-export default function DirectorPage({ directorName, directorBio }) {
+export default function DirectorPage({ directorName, directorBio, movies }) {
   return (
     <div className={styles.card}>
       <div className={styles.container}>
@@ -14,6 +14,18 @@ export default function DirectorPage({ directorName, directorBio }) {
             </span>
           ))}
         </p>
+        <h3 className={styles.moviesHeading}>Movies by {directorName}:</h3>
+        <ul className={styles.movieList}>
+          {movies.length > 0 ? (
+            movies.map((movie) => (
+              <li key={movie.id}>
+                <strong>{movie.title}</strong> ({movie.releaseYear})
+              </li>
+            ))
+          ) : (
+            <li>No movies available.</li>
+          )}
+        </ul>
       </div>
     </div>
   );
@@ -28,12 +40,17 @@ export async function getServerSideProps({ params }) {
 
   // Fetch director details using the directorId
   const directorRes = await fetch(`http://localhost:3000/api/directors/${movie.directorId}`);
-  const director = await directorRes.json();
+  const directorData = await directorRes.json();
+
+  if (!directorData || !directorData.director) return { notFound: true };
+
+  const { director, movies } = directorData;
 
   return {
     props: {
       directorName: director.name || 'Unknown Director',
       directorBio: director.biography || 'No bio available.',
+      movies: movies || [], // Pass the movies directed by the director
     },
   };
 }

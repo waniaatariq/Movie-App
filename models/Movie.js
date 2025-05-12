@@ -1,15 +1,19 @@
-// filepath: c:\Web\Applied Programming\Practice\AP\movie-app\models\Movie.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const movieSchema = new mongoose.Schema({
-  id: { type: String, required: true },
+  id: { type: String, required: true, unique: true }, // Custom ID field
   title: { type: String, required: true },
-  directorId: { type: String, required: true },
-  description: { type: String, required: true },
-  releaseYear: { type: Number, required: true },
-  genreId: { type: String, required: true },
-  rating: { type: Number, required: true },
-  poster: { type: String, required: true },
+  releaseYear: { type: Number },
+  genreId: { type: String },
+  directorId: { type: String },
+  description: { type: String },
+  poster: { type: String },
+  rating: { type: Number },
+  
+  // Add other fields as needed
+}, {
+  timestamps: true
 });
 
-module.exports = mongoose.models.Movie || mongoose.model('Movie', movieSchema);
+// If the model already exists, use that, otherwise create a new one
+export default mongoose.models.Movie || mongoose.model('Movie', movieSchema);

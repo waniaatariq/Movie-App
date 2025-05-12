@@ -1,10 +1,7 @@
 import Link from 'next/link';
-import moviesData from '../../data/movies.json';
 import styles from '../../styles/genre.module.css';
 
-export default function GenresPage() {
-  const genres = moviesData.genres;
-
+export default function GenresPage({ genres }) {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>🎭 Browse Genres</h1>
@@ -23,4 +20,29 @@ export default function GenresPage() {
       </div>
     </div>
   );
+}
+
+// Fetch genres from the API endpoint
+export async function getServerSideProps() {
+  try {
+    const res = await fetch('http://localhost:3000/api/genre'); // Replace with your API endpoint
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.message || 'Failed to fetch genres');
+    }
+
+    return {
+      props: {
+        genres: data, // Pass the genres data to the component
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching genres:', error.message);
+    return {
+      props: {
+        genres: [], // Return an empty array if there's an error
+      },
+    };
+  }
 }
