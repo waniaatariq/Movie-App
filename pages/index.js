@@ -4,14 +4,17 @@ import styles from '../styles/Home.module.css';
 import moviesData from '../data/movies.json';
 import MovieCard from '../components/moviecard';
 import Navbar from '../components/navbar';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/themecontext';
 
-export default function Home({ movies }) {
+export default function Home({ movies = [] }) {
   const router = useRouter();
+  const { darkMode } = useContext(ThemeContext);
 
   return (
     <>
       <Navbar />
-      <main className={styles.container}>
+      <main className={`${styles.container} ${darkMode ? 'dark' : 'light'}`}>
         {/* Title with a glowing effect */}
         <h1 className={styles.title}>🎬 Welcome to Cineverse</h1>
         {/* Subtitle */}
@@ -24,7 +27,6 @@ export default function Home({ movies }) {
               Browse Genres
             </button>
           </Link>
-  
         </div>
 
         <section>
@@ -39,7 +41,6 @@ export default function Home({ movies }) {
     </>
   );
 }
-
 
 export async function getStaticProps() {
   try {

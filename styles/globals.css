@@ -7,3 +7,14 @@ body {
 a {
   color: #e50914;
 }
+.dark {
+  background: #111 !important;
+  color: #fff !important;
+  transition: background 0.3s, color 0.3s;
+}
+
+.light {
+  background: #fff !important;
+  color: #111 !important;
+  transition: background 0.3s, color 0.3s;
+}
